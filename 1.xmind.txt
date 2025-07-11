@@ -1,0 +1,41 @@
+# Servlet 核心知识点整理
+
+## 目录
+1. [Servlet概述](#1-servlet概述)
+2. [Servlet生命周期](#2-servlet生命周期)
+3. [Servlet体系结构](#3-servlet体系结构)
+4. [Servlet配置](#4-servlet配置)
+5. [请求与响应处理](#5-请求与响应处理)
+6. [会话管理](#6-会话管理)
+7. [过滤器(Filter)与监听器(Listener)](#7-过滤器filter与监听器listener)
+8. [Servlet线程安全](#8-servlet线程安全)
+9. [Servlet与其它技术交互](#9-servlet与其它技术交互)
+10. [常见问题](#10-常见问题)
+
+---
+
+## 1. Servlet概述
+- **定义**：用于处理Web请求的Java类，运行在支持Java的应用服务器中
+- **作用**：
+  - 接收客户端请求
+  - 处理业务逻辑
+  - 生成动态响应
+- **特点**：
+  - 基于请求-响应模型
+  - 单例多线程
+  - 需要容器（如Tomcat）管理
+
+---
+
+## 2. Servlet生命周期
+```java
+public class ExampleServlet implements Servlet {
+    // 1. 初始化（单次）
+    public void init(ServletConfig config) {}
+    
+    // 2. 处理请求（多次）
+    public void service(ServletRequest req, ServletResponse res) {}
+    
+    // 3. 销毁（单次）
+    public void destroy() {}
+}
